@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Baking App</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="key_intent_ingredients">recipeIngredients</string>
+    <string name="key_intent_recipeSteps">recipeSteps</string>
+    <string name="key_intent_recipeStepsIndex">recipeStepsIndex</string>
+    <string name="key_intent_recipeName">recipeName</string>
+
+    <string name="key_sharedpreferences_recipeIngredients">recipeIngredientsArrayList</string>
+
+    <string name="key_current_exoplayer_position">currentExoPlayerPosition</string>
+
+    <string name="tv_recipe_ingredient_of">of</string>
+
+    <string name="no_internet_connection">There is no internet connection! Please connect your device to the Internet.</string>
+    <string name="no_url_recipestep">There is no video for this step of current recipe.</string>
+
+    <string name="recipe_required_ingredients">Required Ingredients</string>
+    <string name="recipe_follow_steps">Follow these steps to finish this recipe</string>
+    <string name="appwidget_text">Required recipe ingredients</string>
+    <string name="add_widget">Add widget</string>
+
+</resources>
