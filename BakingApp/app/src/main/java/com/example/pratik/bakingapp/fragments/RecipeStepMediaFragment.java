@@ -171,6 +171,30 @@ public class RecipeStepMediaFragment extends Fragment implements ExoPlayer.Event
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        exoPlayer.release();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        releasePlayer();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        exoPlayer.getPlayWhenReady();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        initializePlayer();
+    }
+
+    @Override
     public void onDetach() {
         super.onDetach();
         mInteractionListener = null;

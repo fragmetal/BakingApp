@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import com.example.pratik.bakingapp.interfaces.OnItemClickListener;
 import com.example.pratik.bakingapp.R;
 import com.example.pratik.bakingapp.data.RecipeStep;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by Pratik
@@ -45,6 +47,15 @@ public class RecipeStepAdapter extends RecyclerView.Adapter<RecipeStepAdapter.Re
     @Override
     public void onBindViewHolder(RecipeStepViewHolder holder, int position) {
 
+        String thumbnailUrl = mRecipeStepsList.get(position).getThumbnailUrl();
+        if (thumbnailUrl.isEmpty()) {
+            holder.recipeStepIVThumb.setImageResource(R.drawable.chef_placeholder_square);
+        } else {
+            Picasso.get()
+                    .load(thumbnailUrl)
+                    .placeholder(R.drawable.chef_placeholder_square)
+                    .into(holder.recipeStepIVThumb);
+        }
 
         String shortStepDescription = mRecipeStepsList.get(position).getShortStepDescription();
         holder.recipeStepTV.setText(shortStepDescription);
@@ -61,10 +72,12 @@ public class RecipeStepAdapter extends RecyclerView.Adapter<RecipeStepAdapter.Re
     public class RecipeStepViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView recipeStepTV;
+        private ImageView recipeStepIVThumb;
 
         public RecipeStepViewHolder(View itemView) {
             super(itemView);
             recipeStepTV = (TextView) itemView.findViewById(R.id.tv_recipestep_shortdescription);
+            recipeStepIVThumb = (ImageView) itemView.findViewById(R.id.iv_recipe_item_thumbNail);
             itemView.setOnClickListener(this);
         }
 
